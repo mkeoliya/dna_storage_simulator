@@ -1,0 +1,20 @@
+Failed opening input file!
+16
+33
+50
+66
+83
+100
+StartCase:	0
+EndCase:	5
+Total number of clusters: 5
+Edit distance hist:
+0	6
+Substitution rate:	0
+Deletion rate:	0
+Insertion rate:	0
+Error rate:	0
+Success rate:	1
+number of majority test 0
+
+Time elapsed: 21	seconds

@@ -1,0 +1,13 @@
+StartCase:	0
+EndCase:	50
+Total number of clusters: 50
+Edit distance hist:
+0	40
+1	50
+2	51
+Substitution rate:	0
+Deletion rate:	0.000178253
+Insertion rate:	0.00196078
+Error rate:	0.00213904
+Success rate:	0.784314
+number of majority test 0
