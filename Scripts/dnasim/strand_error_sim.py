@@ -114,14 +114,14 @@ class StrandErrorSimulation:
         # 2. draw whether there's error or not in the given rates:
         options = ['y', 'n']
         rates = [total_error_rate, no_error_rate]
-        if self.index <= 1:
-            rates[0] = rates[0] * 2
-            rates[1] = 1 - rates[0]
-        elif self.index == (len(self.strand) - 1):
-            rates[0] = rates[0] * 8
-            rates[1] = 1 - rates[0]
-        else:
-            pass
+        # if self.index <= 1:
+        #     rates[0] = rates[0] * 2
+        #     rates[1] = 1 - rates[0]
+        # elif self.index == (len(self.strand) - 1):
+        #     rates[0] = rates[0] * 8
+        #     rates[1] = 1 - rates[0]
+        # else:
+        #     pass
         draw = random.choices(options, weights=rates, k=1)
 
         # 3. check type of drawn result:
