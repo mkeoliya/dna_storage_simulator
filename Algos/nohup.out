@@ -1,0 +1,21 @@
+./DNA ../Data/cov5/nanopore-p15-uniform/clusters.txt ../Data/microsoft-real/Centers.txt 110 ../Data/cov5/nanopore-p15-uniform/recons-iter.txt
+make: ./DNA: Command not found
+make: *** [run_iterative] Error 127
+./DNA ../Data/cov5/nanopore-p15-uniform/clusters.txt ../Data/microsoft-real/Centers.txt 110 ../Data/cov5/nanopore-p15-uniform/recons-iter.txt
+./DNA ../Data/cov6/nanopore-p15-uniform/clusters.txt ../Data/microsoft-real/Centers.txt 110 ../Data/cov6/nanopore-p15-uniform/recons-iter.txt
+./DNA ../Data/cov10/nanopore-p15-uniform/clusters.txt ../Data/microsoft-real/Centers.txt 110 ../Data/cov10/nanopore-p15-uniform/recons-iter.txt
+Doing
+Done
+0.0358477
+
+Time elapsed: 754	seconds
+Doing
+Done
+0.0246369
+
+Time elapsed: 1091	seconds
+Doing
+Done
+0.0134054
+
+Time elapsed: 3121	seconds

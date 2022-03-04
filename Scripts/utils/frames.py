@@ -12,14 +12,13 @@ ref2, read2
 
 import csv
 
-with open('refs_microsoft.txt') as f:
+with open('../../Data/microsoft-real/Centers.txt') as f:
     refs = f.readlines()
 
-with open('recons-our-bma.txt') as f2:
+with open('../../Data/cov10/nanopore-p15-uniform/recons-iter.txt') as f2:
     reads = f2.readlines()
 
-
-f = open('our-bma.csv', "w")
+f = open('../../Data/cov10/nanopore-p15-uniform/iter.csv', "w")
 writer = csv.writer(f)
 header = ['Refs', 'Reads']
 writer.writerow(header)

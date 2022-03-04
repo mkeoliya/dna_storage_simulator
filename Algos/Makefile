@@ -3,13 +3,13 @@ exp:
 	export LD_LIBRARY_PATH=/scratch/shared/cs6219/dependencies/GCC/lib64/:$LD_LIBRARY_PATH
 
 run_our_bma: exp
-	python3.6 BMA-Our/recon.py --i ../Data/cov5/nanopore-p15-uniform/clusters.txt  --o  ../Data/cov5/nanopore-p15-uniform/recons-our-bma.txt --path /dev/shm --coverage 5 --L 110
+	python3.6 BMA-Our/recon.py --i ../Data/cov10/nanopore-p15-uniform/clusters.txt  --o  ../Data/cov10/nanopore-p15-uniform/recons-our-bma.txt --path /dev/shm --L 110
 
 build_sab_bma: exp
 	g++ -std=c++11 BMA-Sabary/BMALookaheadMod.cpp -o BMA
 
 run_sab_bma: build_sab_bma
-	./BMA ../Data/cov6/nanopore-p15-uniform/clusters.txt ../Data/cov6/nanopore-p15-uniform/recons-sab-bma.txt
+	./BMA ../Data/cov10/nanopore-p15-uniform/clusters.txt ../Data/cov10/nanopore-p15-uniform/recons-sab-bma.txt
 
 build_iterative: exp
 	g++ -std=c++0x -O3 -g3 -Wall -c -fmessage-length=0 -o LCS2.o Iterative/LCS2.cpp
