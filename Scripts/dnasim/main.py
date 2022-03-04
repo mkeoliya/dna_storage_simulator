@@ -107,10 +107,25 @@ if __name__ == '__main__':
     original_strands = [line.strip() for line in refs_file.readlines()]
 
     i = 0
-    output_f = open('../../Data/cov10/nanopore-p15-uniform/clusters.txt', 'w')
+
+    cov_5 = open('../../Data/cov5/nanopore-p15-uniform/clusters.txt', 'w')
+    cov_6 = open('../../Data/cov6/nanopore-p15-uniform/clusters.txt', 'w')
+    cov_10 = open('../../Data/cov10/nanopore-p15-uniform/clusters.txt', 'w')
+
     strand_cov = 10
     for strand in original_strands:
-        output_f.write(f'{strand_cov}\n')
-        for s in sim.simulate_strand(strand, strand_cov):
-            output_f.write(s + '\n')
+        cov_5.write(f'{5}\n')
+        cov_6.write(f'{6}\n')
+        cov_10.write(f'{10}\n')
+
+        sims = sim.simulate_strand(strand, strand_cov)
+        for s in sims[:5]:
+            cov_5.write(s + '\n')
+        
+        for s in sims[:6]:
+            cov_6.write(s + '\n')
+
+        for s in sims:
+            cov_10.write(s + '\n')
+
         i += 1
