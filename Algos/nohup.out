@@ -19,3 +19,21 @@ Done
 0.0134054
 
 Time elapsed: 3121	seconds
+./DNA ../Data/cov5/nanopore-2nd-order-skew/clusters.txt ../Data/microsoft-real/Centers.txt 110 ../Data/cov5/nanopore-2nd-order-skew/recons-iter.txt
+./DNA ../Data/cov6/nanopore-2nd-order-skew/clusters.txt ../Data/microsoft-real/Centers.txt 110 ../Data/cov6/nanopore-2nd-order-skew/recons-iter.txt
+./DNA ../Data/cov10/nanopore-2nd-order-skew/clusters.txt ../Data/microsoft-real/Centers.txt 110 ../Data/cov10/nanopore-2nd-order-skew/recons-iter.txt
+Doing
+Done
+0.0154685
+
+Time elapsed: 679	seconds
+Doing
+Done
+0.0118559
+
+Time elapsed: 997	seconds
+Doing
+Done
+0.00968649
+
+Time elapsed: 2894	seconds
