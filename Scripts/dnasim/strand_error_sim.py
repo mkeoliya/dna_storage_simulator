@@ -2,6 +2,7 @@
 
 import random
 import copy
+import numpy as np
 
 """
 How to use:
@@ -114,7 +115,8 @@ class StrandErrorSimulation:
         # 2. draw whether there's error or not in the given rates:
         options = ['y', 'n']
         rates = [total_error_rate, no_error_rate]
-        if self.index <= 1:
+
+        if self.index <= 2:
             rates[0] = rates[0] * 2
             rates[1] = 1 - rates[0]
         elif self.index == (len(self.strand) - 1):
@@ -152,10 +154,32 @@ class StrandErrorSimulation:
 
         # remove insertion rates (as they are not needed in this stage - they are used for inserted base generation)
         del base_rates['i']
+        
+        if abs(self.index - (len(self.strand) - 1)) <= 2:
+            if base == 'G':
+                base_rates['d'] = base_rates['d'] * 10
+                base_rates['s'] = base_rates['s'] * 4
+            elif base == 'A':
+                base_rates['d'] = base_rates['d'] * 10
+                base_rates['s'] = base_rates['s'] * 4
+            elif base == 'C':
+                base_rates['s'] = base_rates['s'] * 4
+            else: # T
+                base_rates['s'] = base_rates['s'] * 4
+        
+        if self.index <= 2:
+            base_rates['pi'] = base_rates['pi'] * 10
+            if base == 'C':
+                base_rates['d'] = base_rates['d'] * 6
+            if base == 'T':
+                base_rates['d'] = base_rates['d'] * 10
 
+
+                
         for key, value in base_rates.items():
             options.append(key)
             rates.append(value)
+
 
         #  Note: choices uses weights, and thus is equivalent to conditional probability!
         draw = random.choices(options, weights=rates, k=1)
@@ -207,6 +231,9 @@ class StrandErrorSimulation:
                                 'T': self.base_error_rates['T']['i'],
                                 'C': self.base_error_rates['C']['i'],
                                 'G': self.base_error_rates['G']['i']}
+        if self.index <= 2:
+            base_insertion_rates['T'] = base_insertion_rates['T']  /  4
+            
         options = list(base_insertion_rates.keys())
         rates = list(base_insertion_rates.values())
         draw = random.choices(options, weights=rates, k=1)

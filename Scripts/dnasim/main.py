@@ -1,6 +1,7 @@
 import copy
 import strand_error_sim
 import os
+import numpy as np
 
 class Simulator:
     """
@@ -52,6 +53,15 @@ class Simulator:
     def simulate_strands(self, original_strands, num_copies):
         return [self.simulate_strand(s, num_copies) for s in original_strands]
 
+def get_pos_for_v_shape(skew, i, mid):
+    return int((len(skew) - 1) * abs(i - mid) / mid)
+
+def get_pos_for_a_shape(skew, i, mid):
+    pos = -1 * int(len(skew) * abs(i - mid) / mid)
+    if i == 55:
+        pos = -1
+    return pos
+
 if __name__ == '__main__':
     total_error_rates = {
         'd': 0.015163160437436866,
@@ -96,8 +106,17 @@ if __name__ == '__main__':
                                   4: 1.8,
                                   5: 0.2,
                                   6: 0.02}
+    
 
     sim = Simulator(total_error_rates, base_error_rates, long_deletion_length_rates)
+
+    skew = sorted(np.random.triangular(0, 0.15, 0.3, 20000))
+    mid = 55
+
+    skew_vals = [0] * 111
+    for i in range(0, 111):
+        pos = get_pos_for_a_shape(skew, i, mid)
+        skew_vals[i] = skew[pos]
 
     file_path = os.path.dirname(__file__)
     if file_path != "":
@@ -108,9 +127,9 @@ if __name__ == '__main__':
 
     i = 0
 
-    cov_5 = open('../../Data/cov5/nanopore-sim-cond-ld-skew/clusters.txt', 'w')
-    cov_6 = open('../../Data/cov6/nanopore-sim-cond-ld-skew/clusters.txt', 'w')
-    cov_10 = open('../../Data/cov10/nanopore-sim-cond-ld-skew/clusters.txt', 'w')
+    cov_5 = open('../../Data/cov5/nanopore-2nd-order-skew/clusters.txt', 'w')
+    cov_6 = open('../../Data/cov6/nanopore-2nd-order-skew/clusters.txt', 'w')
+    cov_10 = open('../../Data/cov10/nanopore-2nd-order-skew/clusters.txt', 'w')
 
     strand_cov = 10
     for strand in original_strands:
