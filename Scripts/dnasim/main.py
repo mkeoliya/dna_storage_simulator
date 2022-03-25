@@ -64,10 +64,10 @@ def get_pos_for_a_shape(skew, i, mid):
 
 if __name__ == '__main__':
     total_error_rates = {
-        'd': 0.015163160437436866,
-        'i': 0.018348000570951734,
-        's': 0.01700159756686723,
-        'ld': 0.0033104220650884975,
+        'd': 0.0833,
+        'i': 0.0833,
+        's': 0.0833,
+        'ld': 0,
     }
     
     base_error_rates = {
@@ -127,23 +127,27 @@ if __name__ == '__main__':
 
     i = 0
 
-    cov_5 = open('../../Data/cov5/nanopore-2nd-order-skew/clusters.txt', 'w')
-    cov_6 = open('../../Data/cov6/nanopore-2nd-order-skew/clusters.txt', 'w')
-    cov_10 = open('../../Data/cov10/nanopore-2nd-order-skew/clusters.txt', 'w')
+    # cov_5 = open('../../Data/cov5/nanopore-2nd-order-skew/clusters.txt', 'w')
+    # cov_6 = open('../../Data/cov6/nanopore-2nd-order-skew/clusters.txt', 'w')
+    cov_10 = open('../../Data/cov10/profs-params/clusters.txt', 'w')
+    cov_10_refs = open('../../Data/cov10/profs-params/refs.txt', 'w')
+
 
     strand_cov = 10
+    example_strand = "TTGTCACTAGAGGACGCACGCTCTATTTTTATGATCCATTGATGTCCCTGACGCTGCAAAATTTGCAACCAGGCAGTCTTCGCGGTAGGTCCTAGCCTTATTGTCACTAGAGGACGCACGCTCTATTTTTATGATCCATTGATGTCCCTGACGCTGCAAAATTTGCAACCAGGCAGTCTTCGCGGTAGGTCCTAGCCTTA"
     for strand in original_strands:
-        cov_5.write(f'{5}\n')
-        cov_6.write(f'{6}\n')
+        # cov_5.write(f'{5}\n')
+        # cov_6.write(f'{6}\n')
         cov_10.write(f'{10}\n')
 
-        sims = sim.simulate_strand(strand, strand_cov)
-        for s in sims[:5]:
-            cov_5.write(s + '\n')
+        new_str = (strand + strand)[:200]
+        sims = sim.simulate_strand(new_str, strand_cov)
+        # for s in sims[:5]:
+        #     cov_5.write(s + '\n')
         
-        for s in sims[:6]:
-            cov_6.write(s + '\n')
-
+        # for s in sims[:6]:
+        #     cov_6.write(s + '\n')
+        cov_10_refs.write(new_str+'\n')
         for s in sims:
             cov_10.write(s + '\n')
 

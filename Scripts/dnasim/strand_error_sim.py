@@ -116,14 +116,14 @@ class StrandErrorSimulation:
         options = ['y', 'n']
         rates = [total_error_rate, no_error_rate]
 
-        if self.index <= 2:
-            rates[0] = rates[0] * 2
-            rates[1] = 1 - rates[0]
-        elif self.index == (len(self.strand) - 1):
-            rates[0] = rates[0] * 8
-            rates[1] = 1 - rates[0]
-        else:
-            pass
+        # if self.index <= 2:
+        #     rates[0] = rates[0] * 2
+        #     rates[1] = 1 - rates[0]
+        # elif self.index == (len(self.strand) - 1):
+        #     rates[0] = rates[0] * 8
+        #     rates[1] = 1 - rates[0]
+        # else:
+        #     pass
         draw = random.choices(options, weights=rates, k=1)
 
         # 3. check type of drawn result:
@@ -155,24 +155,24 @@ class StrandErrorSimulation:
         # remove insertion rates (as they are not needed in this stage - they are used for inserted base generation)
         del base_rates['i']
         
-        if abs(self.index - (len(self.strand) - 1)) <= 2:
-            if base == 'G':
-                base_rates['d'] = base_rates['d'] * 10
-                base_rates['s'] = base_rates['s'] * 4
-            elif base == 'A':
-                base_rates['d'] = base_rates['d'] * 10
-                base_rates['s'] = base_rates['s'] * 4
-            elif base == 'C':
-                base_rates['s'] = base_rates['s'] * 4
-            else: # T
-                base_rates['s'] = base_rates['s'] * 4
+        # if abs(self.index - (len(self.strand) - 1)) <= 2:
+        #     if base == 'G':
+        #         base_rates['d'] = base_rates['d'] * 10
+        #         base_rates['s'] = base_rates['s'] * 4
+        #     elif base == 'A':
+        #         base_rates['d'] = base_rates['d'] * 10
+        #         base_rates['s'] = base_rates['s'] * 4
+        #     elif base == 'C':
+        #         base_rates['s'] = base_rates['s'] * 4
+        #     else: # T
+        #         base_rates['s'] = base_rates['s'] * 4
         
-        if self.index <= 2:
-            base_rates['pi'] = base_rates['pi'] * 10
-            if base == 'C':
-                base_rates['d'] = base_rates['d'] * 6
-            if base == 'T':
-                base_rates['d'] = base_rates['d'] * 10
+        # if self.index <= 2:
+        #     base_rates['pi'] = base_rates['pi'] * 10
+        #     if base == 'C':
+        #         base_rates['d'] = base_rates['d'] * 6
+        #     if base == 'T':
+        #         base_rates['d'] = base_rates['d'] * 10
 
 
                 

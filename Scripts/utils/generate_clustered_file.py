@@ -2,40 +2,57 @@
 '''
 Generate clustered data of the form:
 
-original 
-*********
+<num>
 noisy copy
 noisy copy
 noisy copy
 
-original 
-**********
+<num>
 noisy copy
 noisy copy
 '''
+import random
 
-with open('Centers.txt') as f:
+with open('../../Data/microsoft-real/Centers.txt', 'r') as f:
     strands = f.readlines()
 
-with open('Clusters.txt') as f2:
+with open('../../Data/microsoft-real/Clusters.txt', 'r') as f2:
     clusters = f2.readlines()
 
+cov5_f = open('../../Data/cov5/nanopore-real/clusters.txt', "w")
+cov6_f = open('../../Data/cov6/nanopore-real/clusters.txt', "w")
+
+cov5_refs = open('../../Data/cov5/nanopore-real/refs.txt', "w")
+cov6_refs = open('../../Data/cov6/nanopore-real/refs.txt', "w")
+
 i = 0
+count = 0
+c5, c6 = 0, 0
 current_cluster = []
-output = open('nanopore_clustered_filtered_n_10.txt', "w")
 lengths = []
+new_thing = []
 for line in clusters:
     if '=' in line:
-        output.write(strands[i].strip() + "\n")
-        output.write('*****************************\n')
+        if len(current_cluster) >= 6:
+            new_thing.append(strands[i])
+            cov5_refs.write(strands[i])
+            cov6_refs.write(strands[i])
+            
+            random.shuffle(current_cluster)
 
-        lengths.append(len(current_cluster))
-        for s in current_cluster:
-            output.write(s.strip()+"\n")
-        output.write("\n\n")
+            cov5_f.write(str(5)+"\n")
+            c5 += 1
+            for s in current_cluster[:5]:
+                cov5_f.write(s)
+            
+            cov6_f.write(str(6)+"\n")
+            c6 += 1
+            for s in current_cluster[:6]:
+                cov6_f.write(s)
+
         current_cluster = []
         i += 1
     else:
         current_cluster.append(line)
 
-print(lengths)
+print(len(new_thing))
