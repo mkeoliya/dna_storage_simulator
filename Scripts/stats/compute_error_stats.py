@@ -20,11 +20,11 @@ class Base:
 
 
 def read_strands():
-    with open('../data/microsoft-real/Centers.txt') as f:
+    with open('../../Data/microsoft-real/Centers.txt') as f:
         return f.readlines()
 
 def read_clusters():
-    with open('../data/microsoft-real/Clusters.txt') as f:
+    with open('../../Data/microsoft-real/Clusters.txt') as f:
         return f.readlines()
 
 
@@ -102,6 +102,9 @@ def compute_error(data):
     }
 
     for strand, cluster in data:
+        if len(cluster) >= 6:
+            continue
+
         for read in cluster:
             _, ops = matching_new.ops_list(strand, read)
             count_bases(read, bases)
@@ -132,20 +135,17 @@ def read_data():
 
     return res
 
+def read_ops_list():
+    f = open('matching_ops.txt')
+    return f.readlines()
+
 actual_dels = []
 if __name__ == '__main__':
     data = read_data()  # list of (ref, [reads])
 
-    f = open('matching_ops.txt', 'w')
-    for strand, cluster in data:
-        for read in cluster:
-            _, ops = matching_new.ops_list(strand, read)
-            f.write(''.join(ops) + '\n')
-
-
-    # e_ins, e_subs, e_dels, e_long_dels, bases = compute_error(data[:5])
-    # print(e_ins, e_subs, e_dels, e_long_dels)
-    # print(bases['A'].error_rates())
-    # print(bases['G'].error_rates())
-    # print(bases['C'].error_rates())
-    # print(bases['T'].error_rates())
+    e_ins, e_subs, e_dels, e_long_dels, bases = compute_error(data[:1000])
+    print(e_ins, e_subs, e_dels, e_long_dels)
+    print(bases['A'].error_rates())
+    print(bases['G'].error_rates())
+    print(bases['C'].error_rates())
+    print(bases['T'].error_rates())
