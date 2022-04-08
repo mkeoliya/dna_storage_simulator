@@ -19,11 +19,11 @@ with open('../../Data/microsoft-real/Centers.txt', 'r') as f:
 with open('../../Data/microsoft-real/Clusters.txt', 'r') as f2:
     clusters = f2.readlines()
 
-cov5_f = open('../../Data/cov5/nanopore-real/clusters.txt', "w")
-cov6_f = open('../../Data/cov6/nanopore-real/clusters.txt', "w")
+cov5_f = open('../../Data/cov5/nanopore-real-noshuf/clusters.txt', "w")
+cov6_f = open('../../Data/cov6/nanopore-real-noshuf/clusters.txt', "w")
 
-cov5_refs = open('../../Data/cov5/nanopore-real/refs.txt', "w")
-cov6_refs = open('../../Data/cov6/nanopore-real/refs.txt', "w")
+cov5_refs = open('../../Data/cov5/nanopore-real-noshuf/refs.txt', "w")
+cov6_refs = open('../../Data/cov6/nanopore-real-noshuf/refs.txt', "w")
 
 i = 0
 count = 0
@@ -37,9 +37,7 @@ for line in clusters:
             new_thing.append(strands[i])
             cov5_refs.write(strands[i])
             cov6_refs.write(strands[i])
-            
-            random.shuffle(current_cluster)
-
+        
             cov5_f.write(str(5)+"\n")
             c5 += 1
             for s in current_cluster[:5]:
