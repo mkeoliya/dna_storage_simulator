@@ -15,10 +15,10 @@ import csv
 with open('../../Data/cov5/nanopore-real/refs.txt') as f:
     refs = f.readlines()
 
-with open('../../Data/cov5/nanopore-real/recons-sab-bma.txt') as f2:
+with open('../../Data/cov5/nanopore-real/recons-iter.txt') as f2:
     reads = f2.readlines()
 
-f = open('../../Data/cov5/nanopore-real/sab-bma.csv', "w")
+f = open('../../Data/cov5/nanopore-real/iter.csv', "w")
 writer = csv.writer(f)
 header = ['Refs', 'Reads']
 writer.writerow(header)

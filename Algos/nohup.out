@@ -37,3 +37,39 @@ Done
 0.00968649
 
 Time elapsed: 2894	seconds
+./DNA ../Data/cov5/nanopore-real/clusters.txt ../Data/cov5/nanopore-real/refs.txt 200 ../Data/cov5/nanopore-real/recons-iter.txt
+./DNA ../Data/cov6/nanopore-real/clusters.txt ../Data/cov6/nanopore-real/refs.txt 200 ../Data/cov6/nanopore-real/recons-iter.txt
+./DNA ../Data/cov10/profs-params/clusters.txt ../Data/cov10/profs-params/refs.txt 200 ../Data/cov10/profs-params/recons-iter.txt
+Doing
+Done
+0.00514094
+
+Time elapsed: 663	seconds
+Doing
+Done
+0.00288501
+
+Time elapsed: 977	seconds
+Doing
+Done
+0.0209115
+
+Time elapsed: 10504	seconds
+./DNA ../Data/cov5/nanopore-p15-a-skew/clusters.txt ../Data/microsoft-real/Centers.txt 110 ../Data/cov5/nanopore-p15-a-skew/recons-iter.txt
+./DNA ../Data/cov6/nanopore-p15-a-skew/clusters.txt ../Data/microsoft-real/Centers.txt 110 ../Data/cov6/nanopore-p15-a-skew/recons-iter.txt
+./DNA ../Data/cov10/nanopore-p15-a-skew/clusters.txt ../Data/microsoft-real/Centers.txt 110 ../Data/cov10/nanopore-p15-a-skew/recons-iter.txt
+Doing
+Done
+0.0464559
+
+Time elapsed: 763	seconds
+Doing
+Done
+0.0315631
+
+Time elapsed: 1105	seconds
+Doing
+Done
+0.0178009
+
+Time elapsed: 3129	seconds
