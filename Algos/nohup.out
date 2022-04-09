@@ -73,3 +73,27 @@ Done
 0.0178009
 
 Time elapsed: 3129	seconds
+./DNA ../Data/cov5/nanopore-sim/clusters.txt ../Data/microsoft-real/Centers.txt 110 ../Data/cov5/nanopore-sim/recons-iter.txt
+./DNA ../Data/cov6/nanopore-sim/clusters.txt ../Data/microsoft-real/Centers.txt 110 ../Data/cov6/nanopore-sim/recons-iter.txt
+./DNA ../Data/cov6/nanopore-sim-cond-ld/clusters.txt ../Data/microsoft-real/Centers.txt 110 ../Data/cov6/nanopore-sim-cond-ld/recons-iter.txt
+./DNA ../Data/cov5/nanopore-sim-cond-ld/clusters.txt ../Data/microsoft-real/Centers.txt 110 ../Data/cov5/nanopore-sim-cond-ld/recons-iter.txt
+Doing
+Done
+0.0124901
+
+Time elapsed: 680	seconds
+Doing
+Done
+0.0134712
+
+Time elapsed: 674	seconds
+Doing
+Done
+0.00994234
+
+Time elapsed: 990	seconds
+Doing
+Done
+0.0102468
+
+Time elapsed: 992	seconds
