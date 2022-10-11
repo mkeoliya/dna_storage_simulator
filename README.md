@@ -1,6 +1,6 @@
 # DNA Storage Simulator
 
-This monorepository contains code for a research project by Mayank Keoliya and supervised by Djordje Jevdjic, that analyzes and simulates DNA storage. 
+**DNA Storage Simulator** analyzes and simulates the error profile of Nanopore DNA. It was completed as part of an undergraduate research project at NUS, supervised by Professor Djordje Jevdjic. See our [accepted poster](https://github.com/mkeoliya/dna_storage_simulator/blob/main/Artifacts/ISPASS%20Poster.pdf) at [ISPASS '22](https://ispass.org/ispass2022/) for a short summary, and the [extended report](https://github.com/mkeoliya/dna_storage_simulator/blob/main/Artifacts/ISPASS%20Poster.pdf) for details. 
 
 The structure is as follows:
 
